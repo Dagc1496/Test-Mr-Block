@@ -103,6 +103,13 @@ public class BlackListFragment extends Fragment{
                 float rad = (float)ubic.getRadio();
                 simpleGeofence.add(i,new SimpleGeofence(ubic.getName(),ubic.getLatitud(),ubic.getLongitud(),rad));
             }
+            //geofence = createGeofenceList(simpleGeofence);
+        }
+        control.addGeofencesHandler(geofence);
+        if(control.mGoogleApiClient.isConnected()){
+            Toast.makeText(context,"Estoy Conectado",Toast.LENGTH_LONG).show();
+        }else if(!control.mGoogleApiClient.isConnected()){
+            Toast.makeText(context," NO Estoy Conectado",Toast.LENGTH_LONG).show();
         }
 
 

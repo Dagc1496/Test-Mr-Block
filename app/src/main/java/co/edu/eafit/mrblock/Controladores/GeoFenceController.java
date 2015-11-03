@@ -117,8 +117,10 @@ public class GeoFenceController extends ActionBarActivity implements
         buildGoogleApiClient();
         mGoogleApiClient.connect();
         if (!mGoogleApiClient.isConnected()) {
-            Toast.makeText(this, getString(R.string.not_connected), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No estoy conectado" , Toast.LENGTH_SHORT).show();
             return;
+        }else if(mGoogleApiClient.isConnected()){
+            Toast.makeText(getApplicationContext(),"Estoy Conectado",Toast.LENGTH_LONG).show();
         }
             LocationServices.GeofencingApi.addGeofences(mGoogleApiClient, listGeofence, getGeofencePendingIntent())
                     .setResultCallback(this); // Result processed in onResult().
