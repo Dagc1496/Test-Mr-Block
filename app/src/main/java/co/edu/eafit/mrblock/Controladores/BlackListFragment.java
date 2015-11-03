@@ -103,8 +103,6 @@ public class BlackListFragment extends Fragment{
                 float rad = (float)ubic.getRadio();
                 simpleGeofence.add(i,new SimpleGeofence(ubic.getName(),ubic.getLatitud(),ubic.getLongitud(),rad));
             }
-            geofence = createGeofenceList(simpleGeofence);
-            control.addGeofencesHandler(geofence);
         }
 
 
