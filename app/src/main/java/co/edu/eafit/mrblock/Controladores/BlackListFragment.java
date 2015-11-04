@@ -103,14 +103,17 @@ public class BlackListFragment extends Fragment{
                 float rad = (float)ubic.getRadio();
                 simpleGeofence.add(i,new SimpleGeofence(ubic.getName(),ubic.getLatitud(),ubic.getLongitud(),rad));
             }
-            //geofence = createGeofenceList(simpleGeofence);
+            geofence = createGeofenceList(simpleGeofence);
+            if(!geofence.isEmpty()){
+                Toast.makeText(context,"Lista con geofences",Toast.LENGTH_SHORT).show();
+            }
         }
-        control.addGeofencesHandler(geofence);
-        if(control.mGoogleApiClient.isConnected()){
-            Toast.makeText(context,"Estoy Conectado",Toast.LENGTH_LONG).show();
-        }else if(!control.mGoogleApiClient.isConnected()){
-            Toast.makeText(context," NO Estoy Conectado",Toast.LENGTH_LONG).show();
-        }
+        //control.addGeofencesHandler(geofence);
+        //if(control.mGoogleApiClient.isConnected()){
+        //    Toast.makeText(context,"Estoy Conectado",Toast.LENGTH_LONG).show();
+        //}else if(!control.mGoogleApiClient.isConnected()){
+        //    Toast.makeText(context," NO Estoy Conectado",Toast.LENGTH_LONG).show();
+        //}
 
 
         typesBlock = typeHelper.getAllTypes();
